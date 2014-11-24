@@ -12,7 +12,6 @@ describe 'Load' do
   end
 
   let(:site) { Jekyll::Site.new(config) }
-  let(:prep) { Jekyll::Prep.new() }
 
   before(:each) do
     site.process
