@@ -17,7 +17,7 @@ describe 'Load' do
     site.process
   end
 
-  it 'merges data with front matter' do
+  it 'loads data into pages' do
     site.pages.each do |page|
       assert_equal 'this is data', page.data['data']
       assert_equal 'this is front matter', page.data['front matter']
@@ -34,7 +34,7 @@ describe 'Load' do
     assert_equal 2, page.data['items'].count
   end
 
-  it 'puts merged data into items' do
+  it 'puts page data into items' do
     pages = site.pages.select { |page| page.path.end_with? 'index.md' }
     pages.each do |page|
       page.data['items'].each do |item|

@@ -6,16 +6,12 @@ module Jekyll
 
     def generate(site)
       @site = site
-
-      Dir.chdir(@site.source) do
-
-        @data_files = Dir[File.join('_data', '**', '*.yml')]
-        load_data
-      end
+      Dir.chdir(@site.source) { load_pages }
     end
 
-    def load_data
-      @data_files.each do |data_file|
+    def load_pages
+      data_files = Dir[File.join('_data', '**', '*.yml')]
+      data_files.each do |data_file|
         data = YAML.load_file(data_file)
         data = merge_data data_file, data
         add_to_index data_file, data unless is_index data_file
