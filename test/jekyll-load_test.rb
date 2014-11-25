@@ -24,15 +24,27 @@ describe 'Load' do
     end
   end
 
-  it 'adds items to index pages' do
+  it 'adds item list to index page' do
     page = site.pages.detect { |page| page.path == 'index.md' }
     assert_equal 1, page.data['items'].count
+  end
 
+  it 'adds item list to nested index pages' do
     page = site.pages.detect { |page| page.path == 'people/index.md' }
     assert_equal 2, page.data['items'].count
   end
 
-  it 'adds url to items' do
+  it 'puts merged data into items' do
+    pages = site.pages.select { |page| page.path.end_with? 'index.md' }
+    pages.each do |page|
+      page.data['items'].each do |item|
+        assert_equal 'this is data', item['data']
+        assert_equal 'this is front matter', item['front matter']
+      end
+    end
+  end
+
+  it 'adds page url to items' do
     pages = site.pages.select { |page| page.path.end_with? 'index.md' }
     pages.each do |page|
       page.data['items'].each do |item|
