@@ -23,11 +23,15 @@ module Jekyll
     end
 
     def merge_data(data_file, data)
-      path = data_file.gsub('_data/', '').gsub('.yml', '.md')
-      page = @site.pages.detect { |page| page.path == path }
+      page = find_page(data_file)
       page.data.merge! data
       page.data['url'] = page.url
       page.data
+    end
+
+    def find_page(data_file)
+      path = data_file.gsub("_data#{File::SEPARATOR}", '').gsub('.yml', '.md')
+      @site.pages.detect { |page| page.path == path }
     end
 
     def add_to_index(data_file, data)
