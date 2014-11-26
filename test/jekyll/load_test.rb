@@ -1,4 +1,4 @@
-require 'jekyll-load'
+require 'jekyll/load'
 require 'minitest/autorun'
 
 describe 'Load' do
@@ -52,4 +52,5 @@ describe 'Load' do
       end
     end
   end
+
 end
