@@ -4,6 +4,8 @@ module Jekyll
   module Load
     class Loader < Jekyll::Generator
 
+      priority :high
+
       def generate(site)
         @site = site
         Dir.chdir(@site.source) { load_pages }
