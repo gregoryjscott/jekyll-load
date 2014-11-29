@@ -1,26 +1,16 @@
 # Jekyll::Load
 
-TODO: Write a gem description
+Loads data into Jekyll pages.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'jekyll-load'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install jekyll-load
+See [Jekyll's documentation for installing Jekyll plugins](http://jekyllrb.com/docs/plugins/#installing-a-plugin).
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Create a `_data` directory in your Jekyll project.
+2. Inside the `_data` directory, create `.yml` files that correspond to your `.md` Jekyll pages. For example, if you have a `/people/jill.md` Jekyll page then create a `_data/people/jill.yml` file.
+3. Inside the `.yml` files, define data that will be loaded into the corresponding Jekyll pages.
 
 ## Contributing
 

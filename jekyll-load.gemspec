@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.version       = Jekyll::Load::VERSION
   spec.authors       = ['Greg Scott']
   spec.email         = ['i@gregoryjscott.com']
-  spec.summary       = %q{Loads data into your Jekyll pages.}
-  spec.homepage      = ''
+  spec.summary       = %q{Loads data into Jekyll pages.}
+  spec.homepage      = 'https://github.com/gregoryjscott/jekyll-load'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
