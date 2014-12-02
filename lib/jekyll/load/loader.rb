@@ -1,5 +1,3 @@
-require 'jekyll'
-
 module Jekyll
   module Load
     class Loader < Jekyll::Generator

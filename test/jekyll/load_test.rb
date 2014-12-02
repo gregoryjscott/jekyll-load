@@ -13,9 +13,7 @@ describe 'Load' do
 
   let(:site) { Jekyll::Site.new(config) }
 
-  before(:each) do
-    site.process
-  end
+  before(:each) { site.process }
 
   it 'loads data into pages' do
     site.pages.each do |page|
