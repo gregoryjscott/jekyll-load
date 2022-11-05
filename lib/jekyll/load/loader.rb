@@ -12,14 +12,16 @@ module Jekyll
       def load_pages
         data_files = Dir[File.join('_data', '**', '*.yml')]
         data_files.each do |data_file|
+          page = find_page(data_file)
           data = YAML.load_file(data_file)
-          data = merge_data data_file, data
-          add_to_index data_file, data unless is_index data_file
+          unless page.nil?
+            data = merge_data page, data
+            add_to_index data_file, data unless is_index data_file
+          end
         end
       end
 
-      def merge_data(data_file, data)
-        page = find_page(data_file)
+      def merge_data(page, data)
         page.data.merge! data
         page.data['url'] = page.url
         page.data
